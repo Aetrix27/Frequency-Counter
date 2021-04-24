@@ -7,8 +7,6 @@ import string
 
 print("Welcome to Word Frequency Counter! 📊 ")
 
-newTable = HashTable(1)
-newTable.hash_func(1)
 
 # Prompts the user to enter the name of a .txt file
 # For testing, enter example.txt
@@ -51,7 +49,6 @@ print(f'''
 # called word_frequency
 
 frequency_counter = HashTable(8)
-
 
 # Iteratives over  words_in_file list and adds each word in to the Hash Table one word at a time (using Chaining for collision)
 

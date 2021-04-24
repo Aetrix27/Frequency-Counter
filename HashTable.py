@@ -27,16 +27,31 @@ class HashTable:
     m = len(self.arr)
     index = hash1 % m # initial_i's range: [0, m - 1] (inclusive)
 
-    #if index exists:
+    if self.arr[index] == 1: 
+        return (True, index)
+        print((True, index))
 
-    print(index)
+    elif self.arr[index] == key:
+        return (False, index)
+        print((False, index))
+
+    hash2 = hash(key + ord('d'))
+
+    c = hash2 % (m - 1) + 1
+    i = (index + c) % m
 
   # 3️⃣ TODO: Complete the insert method.
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
-    result = self._search(key)
+        #LinkedList.head = result
+    print(key)
+    for i in self.arr:
+        #result = i.find(key)
+        #if result == None:
+        i.data = key
+        print(key)
 
 
   # 4️⃣ TODO: Complete the print_key_values method.
@@ -52,8 +67,8 @@ class HashTable:
 
   def print_key_values(self):
     for elem in self.arr:
-        print(f"Key:  {self.arr[elem][0]}")
-        print(f"Value:  {self.arr[elem][1]}")
+        #each element of hash table is a Linked List, which has a key value pair
+        print(elem.print_nodes())
 
 
 
