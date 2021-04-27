@@ -6,7 +6,7 @@ class LinkedList:
     self.head = None
 
 
-  def append(self, new_data):
+  def add(self, new_data):
     new_node = Node(new_data)
     new_node.next = self.head
     self.head = new_node
@@ -31,7 +31,6 @@ class LinkedList:
       return counter
     else:
       return -1
-
 
 
   def length(self):
