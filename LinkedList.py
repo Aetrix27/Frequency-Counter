@@ -6,22 +6,19 @@ class LinkedList:
     self.head = None
 
 
-  def add(self, new_data):
+  def append(self, new_data):
     new_node = Node(new_data)
     new_node.next = self.head
     self.head = new_node
 
 
   def find(self,item):
-
     current = self.head
-
     found = False
     counter = 0
 
     while current != None and not found:
-
-      if current.data == item:
+      if current.data[0] == item:
         found = True
       else:
         current = current.next
@@ -31,7 +28,19 @@ class LinkedList:
       return counter
     else:
       return -1
+    
+  def update_val(self, key, counter):
+    current = self.head
+    checkCounter = 0
+    while current != None:
+      if checkCounter == counter:
+        current.update()
+        return 1
+      else:
+        current = current.next
+        checkCounter+=1
 
+    return -1
 
   def length(self):
     if self.head == None:
@@ -43,7 +52,6 @@ class LinkedList:
         current = current.next
         counter +=1
       return counter
-
 
   def print_nodes(self):
     current = self.head

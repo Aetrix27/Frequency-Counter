@@ -22,74 +22,24 @@ class HashTable:
 
   # Hash functions are a function that turns each of these keys into an index value that we can use to decide where in our list each key:value pair should be stored. 
 
-# If it finds the given key in the table, it will return (True, index)
-    # If not, it will return (False, the index where it would be inserted)
+  # If it finds the given key in the table, it will return (True, index)
+  # If not, it will return (False, the index where it would be inserted)
   def hash_func(self, key):
     hash1 = hash(key)
     m = len(self.arr)
-    index = hash1 % m # initial_i's range: [0, m - 1] (inclusive)
-    print(self.arr[index].find(key))
+    index = hash1 % m 
 
-    if not self.arr[index]: 
-      return (False, index)
-    elif self.arr[index].find(key) == 1:
-      return (True, index)
-
-    hash2 = hash(key + 'd')
-    #double hashing
-    c = hash2 % (m - 1) + 1
-    i = (index + c) % m
-
-    while i != index:
-        if not self.arr[i]:
-          return (False, i)
-        elif self.arr[i].find(key) == 1:
-          return (True, i)
-        else:
-          i = (i + c) % m
-
-    return (False, -1) # The table is full.
-
+    return index
   # 3️⃣ TODO: Complete the insert method.
 
   # Should insert a key value pair into the hash table, where the key is the word and the value is a counter for the number of times the word appeared. When inserting a new word in the hash table, be sure to check if there is a Node with the same key in the table already.
 
   def insert(self, key, value):
-    location = self.hash_func(key)
-        # If the key already exists, update the value.
-    counter=0
-    i = location[1]
-
-    #print(f"HERESR {self.arr[i].head.data}")
-
-    #if location[1] == -1:
-    #  return # The table is full.
-
-    if location[0] == True:
-      #self.arr[0].head = Node((key,value))
-      print("hi")
-      current = self.arr[i].head
-
-      found = False
-      while current != None and not found:
-        if current.data[0] == key:
-          found = True
-          counter+=1
-          value=counter
-          current.data = None
-          current.data = (key,value)
-        else:
-          current = current.next
-      return
-    
+    index = self.hash_func(key)
+   
     # At this point, we'll know that the given key doesn't exist
     # in the table yet, and that result[1] is the index
     # where the new key-value pair should be inserted.
-    i = location[1]
-    insert = (key, value)
-    
-    self.arr[i].add(insert)
-
 
   # 4️⃣ TODO: Complete the print_key_values method.
 
@@ -103,9 +53,9 @@ class HashTable:
   # erase: 2
 
   def print_key_values(self):
-    for elem in self.arr:
+    for LinkedList in self.arr:
         #each element of hash table is a Linked List, which has a key value pair
-        print(elem.print_nodes())
+      print(LinkedList.print_nodes())
 
 
 
