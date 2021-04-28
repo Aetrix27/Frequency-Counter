@@ -37,15 +37,13 @@ class HashTable:
   def insert(self, key, value):
     index = self.hash_func(key)
     item=0
-    val = self.arr[index].find(key)
-    if val != -1:
-      item = self.arr[index].update_val(key, val) 
+    itemIndexCounter = self.arr[index].find(key)
+    
+    if itemIndexCounter != -1:
+      item = self.arr[index].update_val(key, itemIndexCounter) 
+    #if item with proper value is found
     if item != -1:
       self.arr[index].append([key,value])
-
-    # At this point, we'll know that the given key doesn't exist
-    # in the table yet, and that result[1] is the index
-    # where the new key-value pair should be inserted.
 
   # 4️⃣ TODO: Complete the print_key_values method.
 
